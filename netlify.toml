@@ -1,7 +1,8 @@
 [build]
-  command = "npm install --include=dev --no-audit --no-fund && npx vite build"
+  command = "rm -rf node_modules && npm ci --include=dev --no-audit --no-fund && npx vite build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--include=dev"
+  NETLIFY_USE_YARN = "false"
