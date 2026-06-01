@@ -864,15 +864,7 @@ Width logic:
 Minimum width rule:
 - The DM list minimum width is 288px on both Apple and Android tablets.
 - If the computed DM list width drops below 288px, hide the DM box and let the DM list take the full viewport width.
-
-Safe area rule:
-- Use a 24px top safe area for iPad devices.
-- Use a 16px top safe area for Android tablets.
-
-Visual rules:
-- Keep a 0.5px right divider on the DM list using rgba(0, 0, 0, 0.12).
-- Graybox only controls pane background visibility and should not remove layout structure.
-- Grid overlay visibility is a preview aid only and does not change the adaptive rules.`
+`
 
   async function handleCopyAdaptivePrompt() {
     try {
@@ -897,19 +889,21 @@ Visual rules:
           >
             <div
               className="tablet-frame"
-              style={{
-                '--frame-radius': `${activeTablet.frameRadius}px`,
-                '--screen-radius': `${activeTablet.screenRadius}px`,
-                width: `${viewport.width}px`,
-                height: `${viewport.height}px`,
-                transform: `scale(${zoom})`,
-                transformOrigin: 'top left',
-              }}
+              style={
+                {
+                  borderRadius: `${activeTablet.frameRadius}px`,
+                  width: `${viewport.width}px`,
+                  height: `${viewport.height}px`,
+                  transform: `scale(${zoom})`,
+                  transformOrigin: 'top left',
+                } as CSSProperties
+              }
             >
             <div
               className="tablet-screen"
               style={
                 {
+                  '--screen-radius': `${activeTablet.screenRadius}px`,
                   '--safe-area-top': `${safeAreaConfig.top}px`,
                   '--nav-height': '80.5px',
                 } as CSSProperties
