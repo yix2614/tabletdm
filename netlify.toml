@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf node_modules && npm ci --include=dev --no-audit --no-fund && npx vite build"
+  command = "npm ci --include=dev --no-audit --no-fund && npm run build"
   publish = "dist"
 
 [build.environment]
