@@ -857,7 +857,8 @@ Pane allocation rules:
 - On very narrow layouts, fall back to a compact split only if the DM list still respects its minimum width.
 
 Width logic:
-- The DM list width must align to the grid using left padding + list columns + internal gutters.
+- On 12-column layouts, the DM list width equals left padding + 4 list columns + 3 internal gutters.
+- On 20-column and 24-column layouts, the DM list width equals left padding + 6 list columns + 5 internal gutters.
 - Do not add an extra pane gap between the DM list and the DM box.
 - The DM box always fills the remaining width after the DM list width is resolved.
 
